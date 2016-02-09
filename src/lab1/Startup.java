@@ -20,7 +20,7 @@ public class Startup {
             not have to be a GUI class.
         */
         
-        HR hr = new HR();
+        HRManager hr = new HRManager();
         hr.getEmployeeInfo("Peter","Piper","333-1234");
 //        Employee employee = new Employee();
 //        employee.firstName = "Peter";

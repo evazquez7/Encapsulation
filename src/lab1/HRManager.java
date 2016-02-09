@@ -11,7 +11,7 @@ import java.util.Date;
  *
  * @author Emilio
  */
-public class HR {
+public class HRManager {
      private Employee employee;
      
      public void getEmployeeInfo(String firstName, String lastName, String ssn){

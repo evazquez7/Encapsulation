@@ -34,18 +34,14 @@ public class Employee {
     }
     // Assume this must be performed first
     public void meetWithHrForBenefitAndSalryInfo() {
-        SimpleDateFormat sdf = new SimpleDateFormat("M/d/yyyy");
-        String fmtDate = sdf.format(currentDate);
-        System.out.println("Met with Hr on " + fmtDate);
+        System.out.println("Met with Hr on " + getFormattedDate());
         metWithHr = true;
     }
 
     // Assume this is must be performed second
     public void meetDepartmentStaff() {
         if(metWithHr) {
-            SimpleDateFormat sdf = new SimpleDateFormat("M/d/yyyy");
-            String fmtDate = sdf.format(currentDate);
-            System.out.println("Met with Dept. Staff on " + fmtDate);
+            System.out.println("Met with Dept. Staff on " + getFormattedDate());
             metDeptStaff = true;
         } else {
             System.out.println("Sorry, you cannot meet with "
@@ -56,9 +52,7 @@ public class Employee {
     // Assume this must be performed third
     public void reviewDeptPolicies() {
         if(metWithHr && metDeptStaff) {
-            SimpleDateFormat sdf = new SimpleDateFormat("M/d/yyyy");
-            String fmtDate = sdf.format(currentDate);
-            System.out.println("Reviewed Dept. Policies on " + fmtDate);
+            System.out.println("Reviewed Dept. Policies on " +getFormattedDate());
             reviewedDeptPolicies = true;
         } else {
             System.out.println("Sorry, you cannot review "
@@ -70,9 +64,7 @@ public class Employee {
     // Assume this must be performed 4th
     public void moveIntoCubicle(String cubeId) {
         if(metWithHr && metDeptStaff && reviewedDeptPolicies) {
-            SimpleDateFormat sdf = new SimpleDateFormat("M/d/yyyy");
-            String fmtDate = sdf.format(currentDate);
-            System.out.println("Moved into cube on " + fmtDate);
+            System.out.println("Moved into cube on " + getFormattedDate());
             this.cubeId = cubeId;
             this.movedIn = true;
         } else {
@@ -82,6 +74,11 @@ public class Employee {
                     + "department policies.");
         }
 
+    }
+    
+    private String getFormattedDate() {
+        SimpleDateFormat sdf = new SimpleDateFormat("M/d/yyyy");
+        return sdf.format(currentDate);
     }
 
     public String getFirstName() {
